@@ -2,7 +2,7 @@ import Image from "next/image";
 import archive from "./CaseStudyArchive.module.css";
 import styles from "./GoogleCleanerBuild.module.css";
 
-const repository = "https://github.com/julsoyola/googleCleaner";
+const repository = "https://github.com/benjaminpaulpro1/googleCleaner";
 const stages = [
   {
     title: "Make cleanup explicit",

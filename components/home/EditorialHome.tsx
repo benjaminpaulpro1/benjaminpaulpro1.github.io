@@ -6,9 +6,7 @@ import { resumes } from "@/content/resumes";
 import { skills } from "@/content/skills";
 import styles from "./EditorialHome.module.css";
 
-const timelineColors = ["#FF9F96", "#C9BBF7", "#F9D58D", "#B7D2FA"];
-const resumeNumberColors = ["#A13F52", "#6C4AA0", "#8A6200"];
-const resumeAccentColors = ["#6C4AA0", "#A13F52", "#8A6200"];
+const timelineColors = ["var(--rust)", "var(--amber)", "var(--forest)", "var(--slate)"];
 const nav = ["work", "experience", "skills", "resume"];
 
 export default function EditorialHome() {
@@ -33,7 +31,15 @@ export default function EditorialHome() {
                   <a className={styles.button} href={resumes[0].pdf} target="_blank" rel="noopener noreferrer">Resume</a>
                 </div>
               </div>
-              <div className={styles.monogram} aria-hidden="true"><span>bp.</span></div>
+              <div className={styles.terminal}>
+                <div className={styles.terminalBar} aria-hidden="true"><i /><i /><i /></div>
+                <dl>
+                  <dt>whoami</dt><dd>backend software engineer, target</dd>
+                  <dt>cat stack.txt</dt><dd>python · typescript · go · sql</dd>
+                  <dt>cat focus.txt</dt><dd>automated testing, ai code evaluation</dd>
+                  <dt>uptime</dt><dd>4 years in production backends</dd>
+                </dl>
+              </div>
             </div>
           </div>
         </section>
@@ -42,13 +48,14 @@ export default function EditorialHome() {
           <h2 id="work-title" className={styles.srOnly}>Selected work</h2>
           <div className={`${styles.panel} ${styles.projectGrid}`}>
             {projects.map(project => {
-              const style = { "--card-backdrop": project.backdrop, "--card-fill": project.fill, "--label-hover": project.backdrop } as CSSProperties;
+              const style = { "--card-backdrop": `var(--${project.tone})`, "--card-fill": `var(--${project.tone}-tint)`, "--label-hover": `var(--${project.tone}-tint)` } as CSSProperties;
+              const href = project.caseStudyUrl ?? project.repoUrl;
               const card = <>
                 <span className={styles.cardBackdrop} aria-hidden="true" />
                 <article className={styles.cardFront}>
                   <div className={styles.cardTitleRow}>
                     <h3>{project.title}</h3>
-                    {project.caseStudyUrl && <span className={styles.caseStudyLabel}>CASE STUDY</span>}
+                    {href && <span className={styles.caseStudyLabel}>{project.caseStudyUrl ? "CASE STUDY" : "SOURCE ↗"}</span>}
                   </div>
                   <p>{project.category}</p>
                   <div className={styles.cardColor}>
@@ -57,8 +64,9 @@ export default function EditorialHome() {
                   </div>
                 </article>
               </>;
-              return project.caseStudyUrl
-                ? <Link key={project.id} href={project.caseStudyUrl} className={styles.projectCard} style={style}>{card}</Link>
+              if (project.caseStudyUrl) return <Link key={project.id} href={project.caseStudyUrl} className={styles.projectCard} style={style}>{card}</Link>;
+              return href
+                ? <a key={project.id} href={href} target="_blank" rel="noopener noreferrer" className={styles.projectCard} style={style}>{card}</a>
                 : <div key={project.id} className={styles.projectCard} style={style}>{card}</div>;
             })}
           </div>
@@ -96,7 +104,7 @@ export default function EditorialHome() {
       <div className={styles.secondary}>
         <section id="resume" className={`${styles.panel} ${styles.resumes}`} aria-labelledby="resume-title">
           <h2 id="resume-title">Resume</h2>
-          <div className={styles.resumeGrid}>{resumes.map((resume, index) => <a key={resume.pdf} style={{ "--resume-number": resumeNumberColors[index], "--resume-accent": resumeAccentColors[index] } as CSSProperties} href={resume.pdf} target="_blank" rel="noopener noreferrer" aria-label={`Open ${resume.title} resume PDF`}>
+          <div className={styles.resumeGrid}>{resumes.map(resume => <a key={resume.pdf} href={resume.pdf} target="_blank" rel="noopener noreferrer" aria-label={`Open ${resume.title} resume PDF`}>
             <span className={styles.resumeNumber}>{resume.index}</span><h3>{resume.title}</h3><p>{resume.description}</p><span className={styles.resumeAction}>Resume</span>
           </a>)}</div>
         </section>

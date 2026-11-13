@@ -23,7 +23,7 @@ export const googlecleaner = {
     },
     {
       "label": "Source & unpacked setup",
-      "href": "https://github.com/julsoyola/googleCleaner#readme"
+      "href": "https://github.com/benjaminpaulpro1/googleCleaner#readme"
     }
   ],
   "validation": "Ask participants to find a target file, predict the complete selection including hidden items and folder contents, and recover from an API error. Check popup closure and worker resumption with disposable files separately.",
@@ -38,11 +38,11 @@ export const googlecleanerArchive: ArchiveData = {
   theme: "googlecleaner", name: "GoogleCleaner", number: "02", sidebarTitle: ["GoogleCleaner"],
   sidebarSummary: "A Chrome extension that makes Google Drive file discovery, selection, and cleanup easier to understand.",
   metadata: [role, {label: "Type", text: "Personal Chrome Extension"}, {label: "Technology", text: "JavaScript, Manifest V3, Chrome Identity, Google Drive API"}],
-  links: [{label: "Demo", href: "#demo", text: "Interactive simulated demo"}, {label: "GitHub", href: "https://github.com/julsoyola/googleCleaner", text: "github.com/julsoyola/googleCleaner"}],
+  links: [{label: "Demo", href: "#demo", text: "Interactive simulated demo"}, {label: "GitHub", href: "https://github.com/benjaminpaulpro1/googleCleaner", text: "github.com/benjaminpaulpro1/googleCleaner"}],
   navigation,
   hero: {title: "Making Google Drive cleanup clearer and more efficient", summary: "GoogleCleaner helps users find files, review their selections, and move chosen items to Trash. Its focused interface and background processing make bulk actions easier to follow without sacrificing control.", image: googlecleaner.image, notice: "Interactive demo: simulated files and results, with no Google account required."},
   actions: [{label: "Download", href: "https://chromewebstore.google.com/detail/googlecleaner/acijddppbcekpnlddndfomahlpgcnfoe"}, 
-            {label: "View Source", href: "https://github.com/julsoyola/googleCleaner"}],
+            {label: "View Source", href: "https://github.com/benjaminpaulpro1/googleCleaner"}],
   interface: {title: "Interface Design", heading: "A simple, focused experience", text: "We kept the interface centered on three tasks: finding files, selecting them, and reviewing changes. Search, filters, and sorting support discovery, while visible selection states help users understand what they have chosen.", image: googlecleaner.screenshots[0], colors: [["Cream", "#f7f3e9"], ["Secondary", "#efe8d6"], ["Lavender", "#c4bcdd"], ["Selected", "#e5dff0"], ["Blush", "#e9b9c7"], ["Plum", "#302b3d"]]},
   decisions: [
     {title: "Stable selection", icon: "folder", text: "Search and filter without changing selected file IDs.", why: "Hidden rows remain part of the selection.", tradeoff: "Extra state to track hidden selections."},
@@ -70,5 +70,5 @@ export const googlecleanerCard: Project = {
   id: "googlecleaner", title: "GoogleCleaner", category: "CHROME EXTENSION / FILE MANAGEMENT",
   caseStudyUrl: "/work/googlecleaner",
   description: "Help Drive users find relevant files and understand their full selection before a bulk move to Trash.",
-  stack: ["JavaScript", "Chrome Extensions", "Google Drive API"], backdrop: "#C9BBF7", fill: "#D9CFF9",
+  stack: ["JavaScript", "Chrome Extensions", "Google Drive API"], tone: "forest",
 };

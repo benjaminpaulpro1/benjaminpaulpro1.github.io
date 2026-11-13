@@ -2,7 +2,7 @@
 
 Adapted from /Users/julso/Developer/googleCleaner/extension at d201798 plus its
 existing local changes, inspected October 9, 2026. No changes to that project.
-Original repository: https://github.com/julsoyola/googleCleaner
+Original repository: https://github.com/benjaminpaulpro1/googleCleaner
 
 - popup.css, lib.js, and icons retain the source implementation.
 - popup.html adds sample labels, viewport/CSP, reset, and adapter scripts.

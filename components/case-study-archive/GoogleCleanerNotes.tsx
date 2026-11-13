@@ -1,5 +1,5 @@
 import styles from "./CaseStudyArchive.module.css";
-const repository = "https://github.com/julsoyola/googleCleaner";
+const repository = "https://github.com/benjaminpaulpro1/googleCleaner";
 const sources = [
   ["Project README", `${repository}/blob/main/README.md`],
   ["Extension setup and behavior", `${repository}/blob/main/extension/README.md`],
